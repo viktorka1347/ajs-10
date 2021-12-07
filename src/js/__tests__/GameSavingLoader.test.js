@@ -1,7 +1,7 @@
 import GameSavingLoader from "../GameSavingLoader";
 
-test("Метод load должен создавать объект типа GameSaving", async() => {
-    const gameSaving = {
+test("Проверка работы  GameSavingLoader", (done) => {
+    const expected = JSON.stringify({
         id: 9,
         created: 1546300800,
         userInfo: {
@@ -10,6 +10,9 @@ test("Метод load должен создавать объект типа Game
             level: 10,
             points: 2000,
         },
-    };
-    expect(await GameSavingLoader.load()).toEqual(gameSaving);
+    });
+    GameSavingLoader.load().then((saving) => {
+        expect(saving).toEqual(expected);
+        done();
+    });
 });
