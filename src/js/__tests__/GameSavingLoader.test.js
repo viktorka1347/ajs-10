@@ -11,5 +11,5 @@ test("Метод load должен создавать объект типа Game
             points: 2000,
         },
     };
-    expect(await Game SavingLoader.load()).toEqual(gameSaving);
+    expect(await GameSavingLoader.load()).toEqual(gameSaving);
 });
